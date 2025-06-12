@@ -1,6 +1,4 @@
-import { useState } from 'react'
-import { Button } from "@/components/ui/button"
-import { Gallery4 } from './components/ui/gallery4'
+
 
 
 import './App.css'
