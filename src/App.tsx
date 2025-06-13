@@ -42,7 +42,7 @@ function MainPage() {
           alphaParticles={false}
           disableRotation={false}
         />
-        <div className="text-center p-4 sm:p-8 rounded-lg bg-black bg-opacity-60 text-[#FFFAFF] hover:scale-105 transition duration-200 shadow-lg w-full max-w-md">
+        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center p-4 sm:p-8 rounded-lg bg-black bg-opacity-60 text-[#FFFAFF] hover:scale-105 transition duration-200 shadow-lg w-full max-w-md z-40">
           <SplitText
             text="Mountain Climbers!"
             className="text-2xl font-bold text-center"
