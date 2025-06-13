@@ -1,14 +1,12 @@
-
-
+{/* Imports */}
 
 import './App.css'
 import { Carousel, CarouselItem, CarouselContent, CarouselNext, CarouselPrevious } from './components/ui/carousel'
 
-function App() {
+function MainPage() {
 
   return (
     <>
-
       {/*flex = side by side, p-x = padding, max-w-x and mx-auto = constrain width, bg-x background, rounded-xl = rounding, shadow-lg = shadow
      gap-x-4 to handle spacing between logo and text 
      fixed = */}
@@ -16,10 +14,8 @@ function App() {
       <div className=" w-full p-0 m-0 bg-[#07020D] min-h-screen overflow-x-hidden  ">
         {/* HEADER */}
         <header className="z-50 flex flex-row p-6 fixed top-0 left-0 w-full  h-26 bg-black space-x-20  shadow-lg  text-center  items-center">
-
-
+          {/* Logo Image */}
           <img src="https://picsum.photos/200/500" className="h-16 w-16 m-25 rounded-full" alt="Vite logo" />
-
 
           {/* Navigation Links */}
           <div className="flex gap-4 rounded-lg px-3 flex-1 bg-[#FFFCF9] absolute left-1/2 transform -translate-x-1/2 scale-120">
@@ -61,8 +57,7 @@ function App() {
               <div>Pricing</div>
             </a>
           </div>
-
-
+          
         </header>
 
         {/* Background Image */}
@@ -129,19 +124,6 @@ function App() {
         </div>
 
 
-        {/* 
-        <div className="flex min-h-svh flex-col items-center justify-center">
-          <Button asChild>
-            <a href="https://vitejs.dev" target="_blank" className="font-bold rounded-lg px-3 bg-[#0E9594]  hover:bg-[#0D0630] hover:text-white">
-              hi
-            </a>
-          </Button>
-
-          <Button onClick={() => alert('Hello, world!')} className="mt-4 bg-[#0E9594] hover:bg-[#0D0630] text-white font-bold py-2 px-4 rounded">
-            Click me
-          </Button>
-        </div> */}
-
 
 
         <footer className="flex items-center justify-center p-6 bg-black text-[#FFFCF9]">
@@ -152,4 +134,4 @@ function App() {
   )
 }
 
-export default App
+export default MainPage
