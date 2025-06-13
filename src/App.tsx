@@ -41,6 +41,7 @@ function MainPage() {
     moveParticlesOnHover={true}
     alphaParticles={false}
     disableRotation={false}
+    className = "flex-none"
   />
 
   <div className="text-center p-4 sm:p-8 rounded-lg bg-black bg-opacity-60 text-[#FFFAFF] hover:scale-105 transition duration-200 shadow-lg w-full max-w-md z-10">
