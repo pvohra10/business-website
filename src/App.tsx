@@ -31,35 +31,36 @@ function MainPage() {
       </header>
 
       {/* HERO SECTION */}
-      <section className="flex items-center justify-center min-h-screen pt-28 bg-[url('/src/assets/background2.jpg')] bg-cover bg-center bg-no-repeat px-4 relative">
-        <Particles
-          particleColors={['#ffffff', '#ffffff']}
-          particleCount={200}
-          particleSpread={10}
-          speed={0.1}
-          particleBaseSize={100}
-          moveParticlesOnHover={true}
-          alphaParticles={false}
-          disableRotation={false}
-        />
-        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center p-4 sm:p-8 rounded-lg bg-black bg-opacity-60 text-[#FFFAFF] hover:scale-105 transition duration-200 shadow-lg w-full max-w-md z-40">
-          <SplitText
-            text="Mountain Climbers!"
-            className="text-2xl font-bold text-center"
-            delay={100}
-            duration={0.6}
-            ease="power3.out"
-            splitType="chars"
-            from={{ opacity: 0, y: 40 }}
-            to={{ opacity: 1, y: 0 }}
-            threshold={0.1}
-            rootMargin="-100px"
-            textAlign="center"
-            onLetterAnimationComplete={handleAnimationComplete}
-          />
-          <p className="mt-2 text-base sm:text-lg">For all your Geronimo! needs</p>
-        </div>
-      </section>
+      <section className="relative min-h-screen bg-[url('/src/assets/background2.jpg')] bg-cover bg-center bg-no-repeat flex items-center justify-center px-4">
+  <Particles
+    particleColors={['#ffffff', '#ffffff']}
+    particleCount={200}
+    particleSpread={10}
+    speed={0.1}
+    particleBaseSize={100}
+    moveParticlesOnHover={true}
+    alphaParticles={false}
+    disableRotation={false}
+  />
+
+  <div className="text-center p-4 sm:p-8 rounded-lg bg-black bg-opacity-60 text-[#FFFAFF] hover:scale-105 transition duration-200 shadow-lg w-full max-w-md z-10">
+    <SplitText
+      text="Mountain Climbers!"
+      className="text-2xl font-bold text-center"
+      delay={100}
+      duration={0.6}
+      ease="power3.out"
+      splitType="chars"
+      from={{ opacity: 0, y: 40 }}
+      to={{ opacity: 1, y: 0 }}
+      threshold={0.1}
+      rootMargin="-100px"
+      textAlign="center"
+      onLetterAnimationComplete={handleAnimationComplete}
+    />
+    <p className="mt-2 text-base sm:text-lg">For all your Geronimo! needs</p>
+  </div>
+</section>
 
       {/* ABOUT */}
       <section className="flex flex-col sm:flex-row items-center gap-6 p-6 bg-[#FFFCF9] shadow-lg text-center">
