@@ -1,7 +1,14 @@
-{/* Imports */}
+{/* Imports */ }
 
 import './App.css'
 import { Carousel, CarouselItem, CarouselContent, CarouselNext, CarouselPrevious } from './components/ui/carousel'
+import SplitText from "./components/ui/SplitText";
+import Particles from './components/ui/Particles';
+
+
+const handleAnimationComplete = () => {
+  console.log('All letters have animated!');
+};
 
 function MainPage() {
 
@@ -57,13 +64,38 @@ function MainPage() {
               <div>Pricing</div>
             </a>
           </div>
-          
+
         </header>
 
         {/* Background Image */}
         <div className="flex items-center justify-center h-screen bg-[url('/src/assets/background2.jpg')] bg-cover bg-center bg-no-repeat">
-          <div className="text-center p-8 rounded-lg bg-black scale-100 bg-opacity-60 text-[#FFFAFF] hover:scale-125 transition duration-100 cbg-opacity-80 transition duration-10 hover:shadow-lg">
-            <h1 className="text-4xl font-bold box-decoration-clone bg-linear-to-r from-sky-600 to-blue"><span className="inline-block">Mountain Climbers</span></h1>
+          <Particles
+            particleColors={['#ffffff', '#ffffff']}
+            particleCount={200}
+            particleSpread={10}
+            speed={0.1}
+            particleBaseSize={100}
+            moveParticlesOnHover={true}
+            alphaParticles={false}
+            disableRotation={false}
+            
+          />
+          <div className="absolute left-1/2 transform -translate-x-1/2 text-center p-8 rounded-lg bg-black scale-100 bg-opacity-60 text-[#FFFAFF] hover:scale-125 transition duration-100 cbg-opacity-80 transition duration-10 hover:shadow-lg">
+            <SplitText
+              text="Mountain Climbers!"
+              className="text-2xl font-bold text-center"
+              delay={100}
+              duration={0.6}
+              ease="power3.out"
+              splitType="chars"
+              from={{ opacity: 0, y: 40 }}
+              to={{ opacity: 1, y: 0 }}
+              threshold={0.1}
+              rootMargin="-100px"
+              textAlign="center"
+              onLetterAnimationComplete={handleAnimationComplete}
+            />
+
             <p className="mt-2 text-lg">For all your Geronimo! needs</p>
           </div>
         </div>
