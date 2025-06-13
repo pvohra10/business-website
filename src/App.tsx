@@ -1,169 +1,114 @@
-{/* Imports */ }
-
 import './App.css'
 import { Carousel, CarouselItem, CarouselContent, CarouselNext, CarouselPrevious } from './components/ui/carousel'
 import SplitText from "./components/ui/SplitText";
 import Particles from './components/ui/Particles';
-
 
 const handleAnimationComplete = () => {
   console.log('All letters have animated!');
 };
 
 function MainPage() {
-
   return (
-    <>
-      {/*flex = side by side, p-x = padding, max-w-x and mx-auto = constrain width, bg-x background, rounded-xl = rounding, shadow-lg = shadow
-     gap-x-4 to handle spacing between logo and text 
-     fixed = */}
+    <div className="w-full p-0 m-0 bg-[#07020D] min-h-screen overflow-x-hidden">
+      
+      {/* HEADER */}
+      <header className="z-50 fixed top-0 left-0 w-full bg-black shadow-lg text-center px-4 py-4 flex flex-col sm:flex-row items-center sm:justify-between space-y-4 sm:space-y-0">
+        {/* Logo */}
+        <img src="https://picsum.photos/200/500" className="h-14 w-14 rounded-full" alt="Logo" />
 
-      <div className=" w-full p-0 m-0 bg-[#07020D] min-h-screen overflow-x-hidden  ">
-        {/* HEADER */}
-        <header className="z-50 flex flex-row p-6 fixed top-0 left-0 w-full  h-26 bg-black space-x-20  shadow-lg  text-center  items-center">
-          {/* Logo Image */}
-          <img src="https://picsum.photos/200/500" className="h-16 w-16 m-25 rounded-full" alt="Vite logo" />
-
-          {/* Navigation Links */}
-          <div className="flex gap-4 rounded-lg px-3 flex-1 bg-[#FFFCF9] absolute left-1/2 transform -translate-x-1/2 scale-120">
-
+        {/* Navigation */}
+        <nav className="flex flex-wrap justify-center gap-2 sm:gap-4 bg-[#FFFCF9] px-4 py-2 rounded-lg">
+          {['Home', 'About', 'Gallery', 'Contact', 'Pricing'].map((label) => (
             <a
-              href="https://vitejs.dev"
-              target="_blank"
-              className="font-bold border-2 border-white px-3 bg-[#FFFCF9] rounded-lg hover:text-black hover:scale-110 hover:border-black transition duration-100"
+              key={label}
+              href="#"
+              className="font-bold border-2 border-white px-3 py-1 bg-[#FFFCF9] rounded-lg hover:text-black hover:scale-110 hover:border-black transition duration-150"
             >
-              <div>Home</div>
+              {label}
             </a>
+          ))}
+        </nav>
+      </header>
 
-            <a
-              href="https://vitejs.dev"
-              target="_blank"
-              className="font-bold border-2 border-white px-3 bg-[#FFFCF9] rounded-lg hover:text-black hover:scale-110 hover:border-black transition duration-100"
-            >
-              <div>About</div>
-            </a>
-            <a
-              href="https://vitejs.dev"
-              target="_blank"
-              className="font-bold border-2 border-white px-3 bg-[#FFFCF9] rounded-lg hover:text-black hover:scale-110 hover:border-black transition duration-100"
-            >
-              <div>Gallery</div>
-            </a>
-            <a
-              href="https://vitejs.dev"
-              target="_blank"
-              className="font-bold border-2 border-white px-3 bg-[#FFFCF9] rounded-lg hover:text-black hover:scale-110 hover:border-black transition duration-100"
-            >
-              <div>Contact</div>
-            </a>
-            <a
-              href="https://vitejs.dev"
-              target="_blank"
-              className="font-bold border-2 border-white px-3 bg-[#FFFCF9] rounded-lg hover:text-black hover:scale-110 hover:border-black transition duration-100"
-            >
-              <div>Pricing</div>
-            </a>
-          </div>
-
-        </header>
-
-        {/* Background Image */}
-        <div className="flex items-center justify-center h-screen bg-[url('/src/assets/background2.jpg')] bg-cover bg-center bg-no-repeat">
-          <Particles
-            particleColors={['#ffffff', '#ffffff']}
-            particleCount={200}
-            particleSpread={10}
-            speed={0.1}
-            particleBaseSize={100}
-            moveParticlesOnHover={true}
-            alphaParticles={false}
-            disableRotation={false}
-            
+      {/* HERO SECTION */}
+      <section className="flex items-center justify-center min-h-screen pt-28 bg-[url('/src/assets/background2.jpg')] bg-cover bg-center bg-no-repeat px-4 relative">
+        <Particles
+          particleColors={['#ffffff', '#ffffff']}
+          particleCount={200}
+          particleSpread={10}
+          speed={0.1}
+          particleBaseSize={100}
+          moveParticlesOnHover={true}
+          alphaParticles={false}
+          disableRotation={false}
+        />
+        <div className="text-center p-4 sm:p-8 rounded-lg bg-black bg-opacity-60 text-[#FFFAFF] hover:scale-105 transition duration-200 shadow-lg w-full max-w-md">
+          <SplitText
+            text="Mountain Climbers!"
+            className="text-2xl font-bold text-center"
+            delay={100}
+            duration={0.6}
+            ease="power3.out"
+            splitType="chars"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="-100px"
+            textAlign="center"
+            onLetterAnimationComplete={handleAnimationComplete}
           />
-          <div className="absolute left-1/2 transform -translate-x-1/2 text-center p-8 rounded-lg bg-black scale-100 bg-opacity-60 text-[#FFFAFF] hover:scale-125 transition duration-100 cbg-opacity-80 transition duration-10 hover:shadow-lg">
-            <SplitText
-              text="Mountain Climbers!"
-              className="text-2xl font-bold text-center"
-              delay={100}
-              duration={0.6}
-              ease="power3.out"
-              splitType="chars"
-              from={{ opacity: 0, y: 40 }}
-              to={{ opacity: 1, y: 0 }}
-              threshold={0.1}
-              rootMargin="-100px"
-              textAlign="center"
-              onLetterAnimationComplete={handleAnimationComplete}
-            />
-
-            <p className="mt-2 text-lg">For all your Geronimo! needs</p>
-          </div>
+          <p className="mt-2 text-base sm:text-lg">For all your Geronimo! needs</p>
         </div>
+      </section>
 
-
-        {/* About */}
-        <div className=" flex blur-2px items-center p-6 w-full h-100 bg-[#FFFCF9] space-x-4  shadow-lg size-26 text-center">
-          <img src="https://picsum.photos/1200/1200" className="m-12 h-40 w-40 rounded-lg" alt="Vite logo" />
-          <div className="box-border p-4 rounded-lg bg-[#07020D] text-[#FFFCF9]">
-            <h1 className="text-2xl font-bold">About Us</h1>
-            <p className="mt-2 text-lg">ndimentum elementum mauris. Nullam efficitur placerat pretium. In varius nisi nec posuere aliquam. Sed sapien libero, molestie quis purus vel, malesuada placerat arcu. Mauris leo turpis, iaculis ut turpis quis, faucibus lobortis urna. Donec a risus quam. Donec vitae nibh a velit dictum pellentesque non eget dui. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut molestie erat quis aliquet semper. Nunc sed nulla ultrices velit tempus commodo ac a nisl. Aenean mattis fringilla magna in tincidunt.</p>
-          </div>
+      {/* ABOUT */}
+      <section className="flex flex-col sm:flex-row items-center gap-6 p-6 bg-[#FFFCF9] shadow-lg text-center">
+        <img src="https://picsum.photos/1200/1200" className="h-40 w-40 rounded-lg" alt="About image" />
+        <div className="bg-[#07020D] text-[#FFFCF9] p-4 rounded-lg text-left max-w-xl">
+          <h1 className="text-2xl font-bold">About Us</h1>
+          <p className="mt-2 text-base sm:text-lg">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat pretium.
+            Donec vitae nibh a velit dictum pellentesque non eget dui.
+          </p>
         </div>
-        <div className=" backdrop-blur-md text-colour-white text-center p-4 bg-black">
-          <div className="border-2 border-[#FFFCF9] rounded-lg p-4">
-            <h1 className="text-2xl text-white font-bold">Our Services</h1>
-            <p className="mt-2 text-lg text-white">We offer a range of cleaning services to meet your needs, including residential and commercial window cleaning, pressure washing, and more.</p>
+      </section>
 
+      {/* SERVICES + CAROUSEL */}
+      <section className="backdrop-blur-md text-white text-center p-6 bg-black">
+        <div className="border-2 border-[#FFFCF9] rounded-lg p-6 max-w-6xl mx-auto">
+          <h1 className="text-2xl font-bold">Our Services</h1>
+          <p className="mt-2 text-base sm:text-lg">
+            We offer a range of cleaning services including residential and commercial window cleaning, pressure washing, and more.
+          </p>
 
-            <Carousel
-
-              opts={{ loop: true }}
-              orientation="horizontal"
-              className="w-3/4 items-center justify-center m-auto mt-8 bg-black shadow-lg rounded-lg"
-            >
-
-              {/* The sliding content */}
-              <CarouselContent>
-
-                <CarouselItem>
+          <Carousel
+            opts={{ loop: true }}
+            orientation="horizontal"
+            className="w-full mt-8 bg-black shadow-lg rounded-lg"
+          >
+            <CarouselContent>
+              {[1, 2, 3].map((num) => (
+                <CarouselItem key={num}>
                   <img
-                    src={"https://picsum.photos/1400/400"}
-                    alt="Cleaning Image 1"
-                    className="w-full h-100 rounded-lg blur-sm"
+                    src={`https://picsum.photos/1400/400?random=${num}`}
+                    alt={`Cleaning Image ${num}`}
+                    className="w-full max-h-64 sm:max-h-96 object-cover rounded-lg blur-sm"
                   />
                 </CarouselItem>
-
-                <CarouselItem>
-                  <img
-                    src={"https://picsum.photos/1400/400"}
-                    alt="Cleaning Image 2 "
-                    className="w-full h-100 rounded-lg blur-sm"
-                  />
-                </CarouselItem>
-                <CarouselItem>
-                  <img
-                    src={"https://picsum.photos/1400/400"}
-                    alt="Cleaning Image 3"
-                    className="w-full h-100 rounded-lg blur-sm"
-                  />
-                </CarouselItem>
-              </CarouselContent>
-              {/* Navigation buttons */}
-              <CarouselPrevious className="left-4 top-1/2 -translate-y-1/2 scheme-dark" />
-              <CarouselNext className="right-4 top-1/2 -translate-y-1/2 scheme-dark" />
-            </Carousel>
-          </div>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-4 top-1/2 -translate-y-1/2" />
+            <CarouselNext className="right-4 top-1/2 -translate-y-1/2" />
+          </Carousel>
         </div>
+      </section>
 
-
-
-
-        <footer className="flex items-center justify-center p-6 bg-black text-[#FFFCF9]">
-          <p>&copy; 2023 Spot On Cleaning. All rights reserved.</p>
-        </footer>
-      </div>
-    </>
-  )
+      {/* FOOTER */}
+      <footer className="flex items-center justify-center p-6 bg-black text-[#FFFCF9] text-sm sm:text-base">
+        <p>&copy; 2023 Spot On Cleaning. All rights reserved.</p>
+      </footer>
+    </div>
+  );
 }
 
-export default MainPage
+export default MainPage;
