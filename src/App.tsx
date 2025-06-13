@@ -31,20 +31,23 @@ function MainPage() {
       </header>
 
       {/* HERO SECTION */}
-      <section className="relative min-h-screen bg-[url('/src/assets/background2.jpg')] bg-cover bg-center bg-no-repeat flex items-center justify-center px-4">
-  <Particles
-    particleColors={['#ffffff', '#ffffff']}
-    particleCount={200}
-    particleSpread={10}
-    speed={0.1}
-    particleBaseSize={100}
-    moveParticlesOnHover={true}
-    alphaParticles={false}
-    disableRotation={false}
-    className = "flex-none"
-  />
+      <section className="relative flex items-center justify-center min-h-screen bg-[url('/src/assets/background2.jpg')] bg-cover bg-center bg-no-repeat px-4">
+  {/* Make sure particles are behind */}
+  <div className="absolute inset-0 z-0">
+    <Particles
+      particleColors={['#ffffff', '#ffffff']}
+      particleCount={200}
+      particleSpread={10}
+      speed={0.1}
+      particleBaseSize={100}
+      moveParticlesOnHover={true}
+      alphaParticles={false}
+      disableRotation={false}
+    />
+  </div>
 
-  <div className="text-center p-4 sm:p-8 rounded-lg bg-black bg-opacity-60 text-[#FFFAFF] hover:scale-105 transition duration-200 shadow-lg w-full max-w-md z-10">
+  {/* The box content */}
+  <div className="relative z-10 text-center p-4 sm:p-8 rounded-lg bg-black bg-opacity-60 text-[#FFFAFF] hover:scale-105 transition duration-200 shadow-lg w-full max-w-md">
     <SplitText
       text="Mountain Climbers!"
       className="text-2xl font-bold text-center"
