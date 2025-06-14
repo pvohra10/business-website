@@ -10,14 +10,14 @@ const handleAnimationComplete = () => {
 function MainPage() {
   return (
     <div className="w-full p-0 m-0 bg-[#07020D] min-h-screen overflow-x-hidden">
-      
+
       {/* HEADER */}
       <header className="z-50 fixed top-0 left-0 w-full bg-black shadow-lg text-center px-4 py-4 flex flex-col sm:flex-row items-center sm:justify-between space-y-4 sm:space-y-0">
         {/* Logo */}
         <img src="https://picsum.photos/200/500" className="h-14 w-14 rounded-full" alt="Logo" />
 
         {/* Navigation */}
-        <nav className="flex flex-wrap justify-center gap-2 sm:gap-4 bg-[#FFFCF9] px-4 py-2 rounded-lg">
+        <nav className="sm:absolute sm:top-1/2 sm:left-1/2 sm:transform sm:-translate-x-1/2 sm:-translate-y-1/2 flex flex-wrap items-center justify-center gap-2 sm:gap-4 bg-[#FFFCF9] px-4 py-2 rounded-lg">
           {['Home', 'About', 'Gallery', 'Contact', 'Pricing'].map((label) => (
             <a
               key={label}
@@ -32,42 +32,42 @@ function MainPage() {
 
       {/* HERO SECTION */}
       <section className="relative flex items-center justify-center min-h-screen bg-[url('/src/assets/background2.jpg')] bg-cover bg-center bg-no-repeat px-4">
-  {/* Make sure particles are behind */}
-  <div className="absolute inset-0 z-0">
-    <Particles
-      particleColors={['#ffffff', '#ffffff']}
-      particleCount={200}
-      particleSpread={10}
-      speed={0.1}
-      particleBaseSize={100}
-      moveParticlesOnHover={true}
-      alphaParticles={false}
-      disableRotation={false}
-    />
-  </div>
+        {/* Make sure particles are behind */}
+        <div className="absolute inset-0 z-0">
+          <Particles
+            particleColors={['#ffffff', '#ffffff']}
+            particleCount={200}
+            particleSpread={10}
+            speed={0.1}
+            particleBaseSize={100}
+            moveParticlesOnHover={true}
+            alphaParticles={false}
+            disableRotation={false}
+          />
+        </div>
 
-  {/* The box content */}
-  <div className="relative z-10 text-center p-4 sm:p-8 rounded-lg bg-black bg-opacity-60 text-[#FFFAFF] hover:scale-105 transition duration-200 shadow-lg w-full max-w-md">
-    <SplitText
-      text="Mountain Climbers!"
-      className="text-2xl font-bold text-center"
-      delay={100}
-      duration={0.6}
-      ease="power3.out"
-      splitType="chars"
-      from={{ opacity: 0, y: 40 }}
-      to={{ opacity: 1, y: 0 }}
-      threshold={0.1}
-      rootMargin="-100px"
-      textAlign="center"
-      onLetterAnimationComplete={handleAnimationComplete}
-    />
-    <p className="mt-2 text-base sm:text-lg">For all your Geronimo! needs</p>
-  </div>
-</section>
+        {/* The box content */}
+        <div className="relative z-10 text-center p-4 sm:p-8 rounded-lg bg-black bg-opacity-60 text-[#FFFAFF] hover:scale-105 transition duration-200 shadow-lg w-full max-w-md">
+          <SplitText
+            text="Mountain Climbers!"
+            className="text-2xl font-bold text-center"
+            delay={100}
+            duration={0.6}
+            ease="power3.out"
+            splitType="chars"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="-100px"
+            textAlign="center"
+            onLetterAnimationComplete={handleAnimationComplete}
+          />
+          <p className="mt-2 text-base sm:text-lg">For all your Geronimo! needs</p>
+        </div>
+      </section>
 
       {/* ABOUT */}
-      <section className="flex flex-col sm:flex-row items-center gap-6 p-6 bg-[#FFFCF9] shadow-lg text-center">
+      <section className="flex flex-col sm:flex-row items-center justify-center gap-6 p-6 bg-[#FFFCF9] shadow-lg text-center">
         <img src="https://picsum.photos/1200/1200" className="h-40 w-40 rounded-lg" alt="About image" />
         <div className="bg-[#07020D] text-[#FFFCF9] p-4 rounded-lg text-left max-w-xl">
           <h1 className="text-2xl font-bold">About Us</h1>
