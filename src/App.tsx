@@ -2,6 +2,7 @@ import './App.css'
 import { Carousel, CarouselItem, CarouselContent, CarouselNext, CarouselPrevious } from './components/ui/carousel'
 import SplitText from "./components/ui/SplitText";
 import Particles from './components/ui/Particles';
+import ContactForm from './components/ui/form';
 
 const handleAnimationComplete = () => {
   console.log('All letters have animated!');
@@ -12,16 +13,19 @@ function MainPage() {
     <div className="w-full p-0 m-0 bg-[#07020D] min-h-screen overflow-x-hidden">
 
       {/* HEADER */}
-      <header className="z-50 fixed top-0 left-0 w-full bg-black shadow-lg text-center px-4 py-4 flex flex-col sm:flex-row items-center sm:justify-between space-y-4 sm:space-y-0">
+      <header className="gap-4 z-50 fixed top-0 left-0 w-full bg-black shadow-lg text-center px-4 py-4 flex flex-col sm:flex-row items-center sm:justify-between space-y-4 sm:space-y-0">
         {/* Logo */}
         <img src="https://picsum.photos/200/500" className="h-14 w-14 rounded-full" alt="Logo" />
 
         {/* Navigation */}
-        <nav className="sm:absolute sm:top-1/2 sm:left-1/2 sm:transform sm:-translate-x-1/2 sm:-translate-y-1/2 flex flex-wrap items-center justify-center gap-2 sm:gap-4 bg-[#FFFCF9] px-4 py-2 rounded-lg">
+        <nav className=" flex flex-wrap items-center justify-center gap-2 sm:gap-4 bg-[#FFFCF9] px-4 py-2 rounded-lg">
           {['Home', 'About', 'Gallery', 'Contact', 'Pricing'].map((label) => (
             <a
               key={label}
-              href="#"
+              onClick={() => {
+                const el = document.getElementById(label);
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }}
               className="font-bold border-2 border-white px-3 py-1 bg-[#FFFCF9] rounded-lg hover:text-black hover:scale-110 hover:border-black transition duration-150"
             >
               {label}
@@ -31,7 +35,7 @@ function MainPage() {
       </header>
 
       {/* HERO SECTION */}
-      <section className="relative flex items-center justify-center min-h-screen bg-[url('/src/assets/background2.jpg')] bg-cover bg-center bg-no-repeat px-4">
+      <section id="Home" className="relative flex items-center justify-center min-h-screen sm:bg-[url('/src/assets/new_background.png')] bg-cover bg-center bg-no-repeat px-4">
         {/* Make sure particles are behind */}
         <div className="absolute inset-0 z-0">
           <Particles
@@ -49,7 +53,7 @@ function MainPage() {
         {/* The box content */}
         <div className="relative z-10 text-center p-4 sm:p-8 rounded-lg bg-black bg-opacity-60 text-[#FFFAFF] hover:scale-105 transition duration-200 shadow-lg w-full max-w-md">
           <SplitText
-            text="Mountain Climbers!"
+            text="Spot-On Cleaning"
             className="text-2xl font-bold text-center"
             delay={100}
             duration={0.6}
@@ -62,24 +66,28 @@ function MainPage() {
             textAlign="center"
             onLetterAnimationComplete={handleAnimationComplete}
           />
-          <p className="mt-2 text-base sm:text-lg">For all your Geronimo! needs</p>
+          <p className="mt-2 text-base sm:text-lg">For all your cleaning needs</p>
         </div>
       </section>
 
       {/* ABOUT */}
-      <section className="flex flex-col sm:flex-row items-center justify-center gap-6 p-6 bg-[#FFFCF9] shadow-lg text-center">
-        <img src="https://picsum.photos/1200/1200" className="h-40 w-40 rounded-lg" alt="About image" />
-        <div className="bg-[#07020D] text-[#FFFCF9] p-4 rounded-lg text-left max-w-xl">
-          <h1 className="text-2xl font-bold">About Us</h1>
-          <p className="mt-2 text-base sm:text-lg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat pretium.
-            Donec vitae nibh a velit dictum pellentesque non eget dui.
+      <section id="About" className="flex flex-col sm:flex-row items-center justify-center gap-6 p-6 bg-[#FFFCF9] shadow-lg text-center w-full h-3/4">
+        <img src="https://picsum.photos/1200/1200" className="h-60 w-2/3 rounded-lg" alt="About image" />
+
+        <div className="bg-[#07020D] text-[#FFFCF9] p-4 rounded-lg text-left w-1/2 gap-40">
+          <h1 className="text-2xl text-center font-bold">About Us</h1>
+          <p className="mt-2 text-base text-center sm:text-lg w-full">
+
+            At Spot On Cleaning, we’re proud to serve the heart of Mississauga with dependable, detail-oriented cleaning services that go beyond surface shine. As a locally owned and operated business, we understand the unique needs of homes and businesses in our community — and we treat every space like it’s our own.
+
+            From downtown condos to suburban family homes and professional office spaces, our team delivers spotless results using safe, eco-friendly products and proven cleaning methods.
           </p>
+
         </div>
       </section>
 
       {/* SERVICES + CAROUSEL */}
-      <section className="backdrop-blur-md text-white text-center p-6 bg-black">
+      <section id="Gallery" className="backdrop-blur-md text-white text-center p-6 bg-black">
         <div className="border-2 border-[#FFFCF9] rounded-lg p-6 max-w-6xl mx-auto">
           <h1 className="text-2xl font-bold">Our Services</h1>
           <p className="mt-2 text-base sm:text-lg">
@@ -107,6 +115,14 @@ function MainPage() {
           </Carousel>
         </div>
       </section>
+
+      <section id="Contact" className="flex items-center justify-center p-6 bg-white text-black text-center ">
+
+
+
+        <ContactForm />
+      </section>
+
 
       {/* FOOTER */}
       <footer className="flex items-center justify-center p-6 bg-black text-[#FFFCF9] text-sm sm:text-base">
