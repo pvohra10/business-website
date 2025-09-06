@@ -90,7 +90,7 @@ import { useState } from 'react';
 import { LoadScript } from '@react-google-maps/api';
 import DistanceMatrix from '@/components/ui/DistanceMatrix';
 
-function parseMinutes(text) {
+function parseMinutes(text: string) {
     if (!text) return null;
     const match = text.match(/Duration:\s*([0-9]+)\s*mins?/i);
     return match ? parseInt(match[1], 10) : null;
@@ -103,12 +103,12 @@ function Pricing() {
 
     const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
-    const handleChange = (e) => {
+    const handleChange = (e: { target: { name: any; value: any; }; }) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
-    const handleCalculate = (e) => {
+    const handleCalculate = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
 
         if (!formData.location) {

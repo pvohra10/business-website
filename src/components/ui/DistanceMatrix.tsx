@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 
 const address = import.meta.env.ADDRESS || "5055 Heatherliegh Avenue, Mississauga, ON";
