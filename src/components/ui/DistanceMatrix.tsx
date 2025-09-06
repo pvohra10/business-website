@@ -23,7 +23,7 @@ function DistanceMatrix({ userLocation, onResult }: Props) {
                 unitSystem: window.google.maps.UnitSystem.METRIC,
             },
             (response, status) => {
-                if (status === 'OK') {
+                if (status === 'OK' && response!=null) {
                     const element = response.rows[0].elements[0];
                     if (element.status === 'OK') {
                         onResult(`Distance: ${element.distance.text}, Duration: ${element.duration.text}`);
